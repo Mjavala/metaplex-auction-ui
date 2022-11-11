@@ -1,0 +1,92 @@
+/** Global CSS Styles **/
+
+/** Selectors */
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: inherit;
+}
+
+h1 {
+  font-size: 5em;
+  font-weight: 400;
+  letter-spacing: 3px;
+  color: azure;
+}
+
+/** Views common classes */
+
+.title {
+  padding: 0.5em 1em;
+  font-size: 3.5em;
+  text-align: center;
+}
+
+/** These classes override the solana wallet adapter package - They must be global */
+.swv-button-trigger {
+  background-color: transparent !important;
+}
+.swv-button {
+  font-family: "Orbitron", sans-serif !important;
+  border-radius: 15px !important;
+}
+.swv-modal-list li .swv-button {
+  border: none !important;
+  box-shadow: none !important;
+}
+.swv-modal-title {
+  font-family: "Orbitron", sans-serif !important;
+}
+
+/** Blue button styles courtesy of Lillith */
+.blue-btn {
+  color: azure;
+  width: 130px;
+  height: 45px;
+  padding: 10px 25px;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  position: relative;
+  display: inline-block;
+}
+
+/* 2 */
+.blue-btn-2 {
+  color: #14ffec;
+  border-radius: 30px;
+  border: 1px solid #14ffec;
+  box-shadow: 0 0 2px #14ffec, 0 0 10px #14ffec inset;
+}
+.blue-btn-2:before {
+  height: 0%;
+  width: 2px;
+}
+.blue-btn-2:hover {
+  color: azure;
+  box-shadow: inset 0 0 10px #14ffec, 0 0 20px #14ffec inset,
+    0 0 20px #14ffec inset;
+}
+
+/* Utility classes */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/** Remove arrows from input buttons */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
