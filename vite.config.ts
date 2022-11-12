@@ -8,6 +8,7 @@ import nodePolyfills from "rollup-plugin-node-polyfills";
 import { fileURLToPath } from "url";
 import WindiCSS from "vite-plugin-windicss";
 import { VitePWA } from "vite-plugin-pwa";
+import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -28,7 +29,7 @@ export default defineConfig({
       assert: "assert",
       crypto: "crypto-browserify",
       util: "util",
-      "@": fileURLToPath(new URL("./src", import.meta.url)),
+      "@": fileURLToPath(new URL(".", import.meta.url)),
     },
   },
   define: {
@@ -38,7 +39,11 @@ export default defineConfig({
     target: "es2020",
     rollupOptions: {
       plugins: [nodePolyfills({ crypto: true })],
+      input: {
+        'entry-point': path.resolve(__dirname, 'main.tsx'),
+      },
     },
+
   },
   optimizeDeps: {
     esbuildOptions: {

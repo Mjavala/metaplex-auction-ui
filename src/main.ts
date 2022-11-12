@@ -1,6 +1,6 @@
 import { createApp } from "vue";
 import "./style.css";
-import App from "./App.vue";
+import App from "./views/App.vue";
 import { createWebHistory } from "vue-router";
 import createRouter from "./router/index";
 // @ts-ignore

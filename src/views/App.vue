@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { walletConnected, solanaConnected } from "./utils";
+import { walletConnected, solanaConnected } from "../utils";
 
 walletConnected();
 solanaConnected();

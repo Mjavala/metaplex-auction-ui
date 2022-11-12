@@ -1,5 +1,5 @@
 import { reactive } from "vue";
-import { StoreInterface } from "../models";
+import { StoreInterface } from "../src/models";
 import { mps } from "./metaplex.js";
 
 export const store: StoreInterface = reactive({
