@@ -7,7 +7,6 @@ import Collections from "../components/Collections.vue";
 <template>
   <div id="market-layout-wrap" class="flex flex-col bg-primary">
     <NavBar />
-    <CollectionsBanner />
     <Collections />
   </div>
 </template>
