@@ -20,7 +20,6 @@ import { MetaplexInterface } from "../models";
 import { useToast } from "vue-toastification";
 const toast = useToast();
 
-// mps = metaplex store
 export const mps: MetaplexInterface = reactive({
   app: null,
   auctionHouse: null,

@@ -7,11 +7,6 @@ import Nft from "../views/Nft.vue"
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: Home,
-  },
-  {
-    path: "/marketplace",
     name: "marketplace",
     component: Collection,
   },
