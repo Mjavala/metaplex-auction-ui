@@ -8,7 +8,7 @@ import { useRoute } from "vue-router";
 const route = useRoute();
 
 const isRoute = (path: string) => {
-  console.log(route.name)
+  console.log(route.name);
   if (route.name) return route.name == path;
 };
 </script>

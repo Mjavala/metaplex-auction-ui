@@ -23,7 +23,7 @@ solanaConnected();
 #app {
   font-family: "Orbitron", sans-serif !important;
   color: #e8f3f1;
-  background-color: #0C1622;
+  background-color: #0c1622;
 }
 
 /** transition styles */

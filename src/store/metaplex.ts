@@ -50,7 +50,9 @@ export const mps: MetaplexInterface = reactive({
     mps.auctionHouse = markRaw(
       await mps.app
         .auctions()
-        .findAuctionHouseByAddress(new PublicKey(import.meta.env.VITE_AUCTION_HOUSE_INSTANCE))
+        .findAuctionHouseByAddress(
+          new PublicKey(import.meta.env.VITE_AUCTION_HOUSE_INSTANCE)
+        )
         .run()
     );
   },
@@ -101,7 +103,7 @@ export const mps: MetaplexInterface = reactive({
           }
         }
       }
-      console.log(mps.auctionHouseListings)
+      console.log(mps.auctionHouseListings);
       return mps.auctionHouseListings;
     } catch (error) {
       console.log(error);
@@ -127,7 +129,9 @@ export const mps: MetaplexInterface = reactive({
 
     const auctionHouse = await mps.app
       .auctions()
-      .findAuctionHouseByAddress(new PublicKey(import.meta.env.VITE_AUCTION_HOUSE_INSTANCE))
+      .findAuctionHouseByAddress(
+        new PublicKey(import.meta.env.VITE_AUCTION_HOUSE_INSTANCE)
+      )
       .run();
 
     await mps.app
@@ -196,7 +200,7 @@ export const mps: MetaplexInterface = reactive({
     const { bid } = await mps.app
       .auctions()
       .for(mps.auctionHouse)
-      .bid({ buyer: mps.signer, mintAccount: mint})
+      .bid({ buyer: mps.signer, mintAccount: mint })
       .run();
 
     const purchase = await mps.app

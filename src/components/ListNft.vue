@@ -10,7 +10,7 @@ const props = defineProps({
   },
 });
 
-console.log(props)
+console.log(props);
 const truncate = (str: string, max = 6) => {
   return str.length > max
     ? str.substr(0, max - 1) + "…" + str.substring(str.length - 3)

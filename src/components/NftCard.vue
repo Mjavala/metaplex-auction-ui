@@ -41,7 +41,9 @@ watchEffect(() => {
 </script>
 
 <template>
-  <div class="nft-wrap flex flex-col mx-4 my-3 border border-secondary rounded-2xl shadow-lg shadow-black border-opacity-50">
+  <div
+    class="nft-wrap flex flex-col mx-4 my-3 border border-secondary rounded-2xl shadow-lg shadow-black border-opacity-50"
+  >
     <div class="nft-image-wrap">
       <img class="nft-image w-full h-full" :src="props.data.image" />
     </div>
@@ -114,6 +116,6 @@ watchEffect(() => {
 }
 
 .nft-sub-title {
-  color: #E30546;
+  color: #e30546;
 }
 </style>

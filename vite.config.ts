@@ -40,10 +40,9 @@ export default defineConfig({
     rollupOptions: {
       plugins: [nodePolyfills({ crypto: true })],
       input: {
-        'entry-point': path.resolve(__dirname, 'main.tsx'),
+        "entry-point": path.resolve(__dirname, "main.tsx"),
       },
     },
-
   },
   optimizeDeps: {
     esbuildOptions: {

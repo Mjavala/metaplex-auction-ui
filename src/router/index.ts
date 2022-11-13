@@ -1,7 +1,7 @@
 import { createRouter } from "vue-router";
 import Collection from "../views/Collection.vue";
 import Profile from "../views/Profile.vue";
-import Nft from "../views/Nft.vue"
+import Nft from "../views/Nft.vue";
 
 const routes = [
   {
@@ -18,9 +18,8 @@ const routes = [
     path: "/nft/:mint",
     name: "nft",
     component: Nft,
-    props: true
-
-  }
+    props: true,
+  },
 ];
 
 export default function (history: any) {

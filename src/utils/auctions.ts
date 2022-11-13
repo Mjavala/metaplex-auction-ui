@@ -1,4 +1,3 @@
-
 export const LISTING_RECEIPT_SIZE =
   8 + // key
   32 + // trade_state

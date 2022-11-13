@@ -45,7 +45,9 @@ const buy = async () => {
 </script>
 
 <template>
-  <div class="nft-ops-wrap flex flex-col justify-evenly items-center text-sm bg-primary rounded-2xl shadow-lg shadow-black border-opacity-50">
+  <div
+    class="nft-ops-wrap flex flex-col justify-evenly items-center text-sm bg-primary rounded-2xl shadow-lg shadow-black border-opacity-50"
+  >
     <div class="nft-ops-list">
       <div v-if="isRoute('Home')" class="nft-ops-item">
         <div v-if="!props.walletIsOwner" @click="buy()">Buy</div>
