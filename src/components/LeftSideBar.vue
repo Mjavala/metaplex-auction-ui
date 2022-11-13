@@ -21,7 +21,7 @@ watchEffect(() => {
     class="min-h-screen max-h-max border-r border-primary"
   >
     <div class="w-80 h-full p-4 flex flex-col">
-      <ListNft :data="{ data }" v-if="listTrigger" />
+      <ListNft :data="store.nftData" v-if="listTrigger" />
     </div>
   </div>
 </template>

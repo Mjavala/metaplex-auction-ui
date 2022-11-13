@@ -8,6 +8,7 @@ import { useRoute } from "vue-router";
 const route = useRoute();
 
 const isRoute = (path: string) => {
+  console.log(route.name)
   if (route.name) return route.name == path;
 };
 </script>
@@ -17,25 +18,11 @@ const isRoute = (path: string) => {
     id="nav-wrap"
     class="pt-6 pb-4 w-screen h-20 flex justify-end items-center"
   >
-    <!--
-    <router-link to="/" id="logo">Solaria</router-link>
-    -->
     <div class="flex-grow flex h-full"></div>
     <nav class="nav-items">
-      <router-link v-if="!isRoute('home')" to="/" class="nav-item"
+      <router-link v-if="!isRoute('Home')" to="/" class="nav-item"
         >Home</router-link
       >
-      <router-link
-        v-if="!isRoute('marketplace')"
-        to="/marketplace"
-        class="nav-item"
-        >Marketplace</router-link
-      >
-      <!--
-      <router-link v-if="!isRoute('rarity')" to="/rarity" class="nav-item"
-        >Rarity</router-link
-      >
-      -->
     </nav>
     <div id="nav-button-wrap">
       <wallet-multi-button dark></wallet-multi-button>
@@ -47,21 +34,6 @@ const isRoute = (path: string) => {
 </template>
 
 <style>
-/*
-#logo {
-  font-size: 3em;
-  padding-left: 1em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  letter-spacing: 2.5px;
-  cursor: pointer;
-  color: azure;
-  z-index: 10;
-  opacity: 2;
-}
-*/
-
 .nav-items {
   display: flex;
   padding-right: 3em;

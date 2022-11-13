@@ -7,7 +7,7 @@ solanaConnected();
 
 <template>
   <router-view v-slot="{ Component, route }">
-    <transition name="fade" color="#212121">
+    <transition name="fade">
       <component :is="Component" :key="route.path" />
     </transition>
   </router-view>
@@ -23,7 +23,7 @@ solanaConnected();
 #app {
   font-family: "Orbitron", sans-serif !important;
   color: #e8f3f1;
-  background-color: #212121;
+  background-color: #0C1622;
 }
 
 /** transition styles */

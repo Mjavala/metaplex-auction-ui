@@ -32,7 +32,6 @@ watchEffect(() => {
   if (props.data) {
     const { publicKey } = useWallet();
     if (publicKey.value) {
-      console.log(props.data.owner, publicKey.value.toString());
       if (props.data.owner == publicKey.value.toString()) {
         walletIsOwner.value = true;
       }

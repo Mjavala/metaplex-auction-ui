@@ -1,4 +1,3 @@
-import { AUCTION_HOUSE_INSTANCE } from "../constants";
 
 export const LISTING_RECEIPT_SIZE =
   8 + // key
@@ -32,7 +31,7 @@ export const getAllListingsFilter = () => {
     {
       memcmp: {
         offset: ListingReceiptPosition.AuctionHouse,
-        bytes: AUCTION_HOUSE_INSTANCE,
+        bytes: import.meta.env.VITE_AUCTION_HOUSE_INSTANCE,
       },
     },
     {
@@ -46,7 +45,7 @@ export const getUserListingsFilter = (wallet: string) => {
     {
       memcmp: {
         offset: ListingReceiptPosition.AuctionHouse,
-        bytes: AUCTION_HOUSE_INSTANCE,
+        bytes: import.meta.env.VITE_AUCTION_HOUSE_INSTANCE,
       },
     },
     {

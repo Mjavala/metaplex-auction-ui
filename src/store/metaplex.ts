@@ -12,7 +12,7 @@ import {
   lamports,
   formatAmount,
 } from "@metaplex-foundation/js";
-import { AUCTION_HOUSE_INSTANCE, AUCTION_HOUSE_PROGRAM } from "../constants";
+import { AUCTION_HOUSE_PROGRAM } from "../constants";
 import { getProgramAccounts, processNFTMetadata } from "../utils";
 import { getAllListingsFilter } from "../utils/auctions";
 import { MetaplexInterface } from "../models";
@@ -23,6 +23,7 @@ const toast = useToast();
 // mps = metaplex store
 export const mps: MetaplexInterface = reactive({
   app: null,
+  signer: null,
   auctionHouse: null,
   auctionHouseListings: [],
   walletNfts: null,
@@ -36,6 +37,7 @@ export const mps: MetaplexInterface = reactive({
           walletAdapterIdentity(wallet)
         )
       );
+      mps.signer = wallet;
     } else {
       mps.app = markRaw(Metaplex.make(connection).use(guestIdentity()));
     }
@@ -48,14 +50,13 @@ export const mps: MetaplexInterface = reactive({
     mps.auctionHouse = markRaw(
       await mps.app
         .auctions()
-        .findAuctionHouseByAddress(new PublicKey(AUCTION_HOUSE_INSTANCE))
+        .findAuctionHouseByAddress(new PublicKey(import.meta.env.VITE_AUCTION_HOUSE_INSTANCE))
         .run()
     );
   },
   getAllNftsForSale: async () => {
     if (!mps.app) return;
 
-    console.log("here");
     try {
       const accounts = await getProgramAccounts(
         AUCTION_HOUSE_PROGRAM,
@@ -100,6 +101,7 @@ export const mps: MetaplexInterface = reactive({
           }
         }
       }
+      console.log(mps.auctionHouseListings)
       return mps.auctionHouseListings;
     } catch (error) {
       console.log(error);
@@ -125,7 +127,7 @@ export const mps: MetaplexInterface = reactive({
 
     const auctionHouse = await mps.app
       .auctions()
-      .findAuctionHouseByAddress(new PublicKey(AUCTION_HOUSE_INSTANCE))
+      .findAuctionHouseByAddress(new PublicKey(import.meta.env.VITE_AUCTION_HOUSE_INSTANCE))
       .run();
 
     await mps.app
@@ -188,13 +190,13 @@ export const mps: MetaplexInterface = reactive({
       .cancelListing({ listing: nft })
       .run();
   },
-  buy: async (wallet: PublicKey, mint: PublicKey, listing: Listing) => {
-    if (!mps.app || !mps.auctionHouse) return;
+  buy: async (mint: PublicKey, listing: Listing) => {
+    if (!mps.app || !mps.auctionHouse || !mps.signer) return;
 
     const { bid } = await mps.app
       .auctions()
       .for(mps.auctionHouse)
-      .bid({ buyer: wallet, mintAccount: mint })
+      .bid({ buyer: mps.signer, mintAccount: mint})
       .run();
 
     const purchase = await mps.app

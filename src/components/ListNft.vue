@@ -10,6 +10,7 @@ const props = defineProps({
   },
 });
 
+console.log(props)
 const truncate = (str: string, max = 6) => {
   return str.length > max
     ? str.substr(0, max - 1) + "…" + str.substring(str.length - 3)
@@ -18,7 +19,7 @@ const truncate = (str: string, max = 6) => {
 
 const listNft = () => {
   // TODO refactor
-  const data = props.data.data.data;
+  const data = props.data.data;
 
   store.metaplex.listNft(data.mint, price);
 };
@@ -34,10 +35,10 @@ const listNft = () => {
           <div class="nft-icon-wrap h-full pl-4 mt-4"></div>
           <div>
             <div class="nft-name pl-3">
-              {{ truncate(props.data.data.data.mint) }}
+              {{ truncate(props.data.data.mint) }}
             </div>
             <div class="nft-collection pl-3 text-xs">
-              {{ props.data.data.data.collection }}
+              {{ props.data.data.collection }}
             </div>
           </div>
         </div>
@@ -52,7 +53,7 @@ const listNft = () => {
       </div>
     </div>
     <button class="swv-button mt-4 flex w-50 justify-center" @click="listNft()">
-      List {{ truncate(props.data.data.data.mint) }}
+      List {{ truncate(props.data.data.mint) }}
     </button>
     <div id="listing-info" class="w-full text-xs pt-4 pl-4">
       Listing price: {{ price }} SOL

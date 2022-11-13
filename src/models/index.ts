@@ -25,6 +25,7 @@ export interface nftMetadata {
 
 export interface MetaplexInterface {
   app: Metaplex | null;
+  signer: any;
   walletNfts: any[] | null;
   auctionHouse: any | null;
   auctionHouseListings: any[];

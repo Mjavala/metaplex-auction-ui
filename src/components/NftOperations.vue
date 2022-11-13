@@ -31,23 +31,15 @@ const props = defineProps({
   },
 });
 
-const buyNow = async () => {
-  if (isConnected()) {
-    const { wallet } = useWallet();
-
-    if (wallet.value) {
-      await store.metaplex.buy(
-        wallet.value,
-        new PublicKey(props.mint),
-        props.listing
-      );
-    }
-  }
-};
-
 const cancelListing = async () => {
   if (isConnected()) {
     await store.metaplex.cancelListing(props.listing);
+  }
+};
+
+const buy = async () => {
+  if (isConnected()) {
+    await store.metaplex.buy(new PublicKey(props.mint), props.listing);
   }
 };
 </script>
@@ -55,8 +47,8 @@ const cancelListing = async () => {
 <template>
   <div class="nft-ops-wrap flex flex-col justify-evenly items-center text-sm bg-primary rounded-2xl shadow-lg shadow-black border-opacity-50">
     <div class="nft-ops-list">
-      <div v-if="isRoute('marketplace')" class="nft-ops-item">
-        <div v-if="!props.walletIsOwner" @click="buyNow()">Buy Now</div>
+      <div v-if="isRoute('Home')" class="nft-ops-item">
+        <div v-if="!props.walletIsOwner" @click="buy()">Buy</div>
       </div>
       <div
         v-if="isRoute('profile')"
@@ -73,7 +65,6 @@ const cancelListing = async () => {
       >
         Cancel
       </div>
-
       <!--
         <div class="nft-ops-item">Copy Link</div>
         <div class="nft-ops-item">Refresh Metadata</div>

@@ -10,8 +10,10 @@ const route = useRoute();
 // @ts-ignore
 let data = ref([]);
 onMounted(async () => {
-  if (route.name == "marketplace")
+  if (route.name == "Home") {
     data.value = await store.metaplex.getAllNftsForSale();
+    console.log(data.value)
+  }
   else if (route.name == "profile" && store.connected)
     data.value = await store.metaplex.getAllWalletNfts();
 });
